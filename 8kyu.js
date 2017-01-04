@@ -66,3 +66,80 @@ function isOpposite(s1,s2){
         && currentValue.toLowerCase() === s2.charAt(index).toLowerCase())
   }).indexOf(false)+1);
 }
+
+// Exclamation marks series #1: Remove a exclamation mark from the end of string
+// Description:
+//
+// Remove a exclamation mark from the end of string. For a beginner kata, you can assume that the input data is always a string, no need to verify it.
+function remove(s){
+  if (s.search(/!$/) >= 0)
+  {
+    s = s.substr(0,s.length -1)
+  }
+
+  return s;
+}
+
+// Exclamation marks series #2: Remove all exclamation marks from the end of sentence
+// Description:
+//
+// Remove all exclamation marks from the end of sentence.
+function remove(s){
+  while (s.search(/!$/) >= 0)
+  {
+    s = s.substr(0,s.length -1)
+  }
+
+  return s;
+}
+
+
+// Exclamation marks series #4: Remove all exclamation marks from sentence but ensure a exclamation mark at the end of string
+// Description:
+//
+// Remove all exclamation marks from sentence but ensure a exclamation mark at the end of string. For a beginner kata, you can assume that the input data is always a non empty string, no need to verify it.
+function remove(s){
+  return s.replace(/!/g,'')+'!'
+}
+
+
+// Count of positives / sum of negatives
+// Description:
+//
+// Given an array of integers.
+//
+// Return an array, where the first element is the count of positives numbers and the second element is sum of negative numbers.
+function countPositivesSumNegatives(input) {
+  var sum = [];
+  if (input) {
+    input.map(function(currentValue){
+      if(currentValue > 0) {
+        sum[0] = (sum[0] || 0) + 1
+      }
+      if(currentValue < 0) {
+        sum[1] = (sum[1] || 0) + currentValue
+      }
+    });
+    if (sum[0] && !sum[1]){ sum[1] = 0}
+  }
+  return sum;
+}
+
+// Volume of a Cuboid
+// Bob needs a fast way to calculate the volume of a cuboid with three values: length, width and the height of the cuboid. Write a function to help Bob with this calculation.
+function getVolumeOfCuboid(length, width, height) {
+    return length * width * height;
+  };
+
+
+// Sum without highest and lowest number
+// Description:
+// Sum all the numbers of the array (in F# and Haskell you get a list) except the highest and the lowest element (the value, not the index!).
+// (The highest/lowest element is respectively only one element at each edge, even if there are more than one with the same value!)
+// If array is empty, null or None, or if only 1 Element exists, return 0.
+function sumArray(array) {
+  if (!array || !array.length || array.length < 3) {
+    return 0;
+  }
+  else return !array.length ? 0:array.sort(function(a, b){return a-b}).slice(1,array.length-1).reduce(function(finalValue,currentValue){return finalValue + currentValue})
+}
