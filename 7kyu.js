@@ -76,3 +76,13 @@ function whichFinger(n){
   }
   return hand[n - 1];
 }
+
+// Calculate Meal Total
+// Description:
+//
+// Create a function that returns the total of a meal including tip and tax. You should not tip on the tax.
+//
+// You will be given the subtotal, the tax as a percentage and the tip as a percentage. Please round your result to two decimal places.
+function calculate_total(subtotal, tax, tip) {
+  return Number((subtotal + (subtotal * ((tip + tax) * .01))).toFixed(2))
+}
