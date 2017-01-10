@@ -86,3 +86,51 @@ function whichFinger(n){
 function calculate_total(subtotal, tax, tip) {
   return Number((subtotal + (subtotal * ((tip + tax) * .01))).toFixed(2))
 }
+
+
+// Sum of a sequence
+// Description:
+//
+// Your task is to make function, which returns the sum of a sequence of integers.
+//
+// The sequence is defined by 3 non-negative values: begin, end, step.
+//
+// If begin value is greater than the end, function should returns 0
+const sequenceSum = (begin, end, step) => {
+  var x = 0;
+  while (begin <= end) {
+    x = x + begin;
+    begin = begin + step;
+  }
+  return x;
+};
+
+
+// Currying functions: multiply all elements in an array
+// Description:
+//
+// To complete this Kata you need to make a function multiplyAll which takes an array of integers as an argument. This function must return another function, which takes a single integer as an argument and returns a new array.
+//
+// The returned array should consist of each of the elements from the first array multiplied by the integer.
+function multiplyAll(array){
+  return function(multiple) {
+    return array.map(function(currentValue){
+      return currentValue * multiple
+    })
+  }
+}
+
+
+// Tail Swap
+// Description:
+//
+// You'll be given a list of two strings, and each will contain exactly one colon in the middle (but not at beginning or end). The length of the strings, before and after the colon, are random.
+//
+// Your job is to return a list of two strings (in the same order as the original list), but with the characters after each colon swapped.
+// Python
+function tailSwap(arr) {
+  return [arr[0].substring(0,arr[0].indexOf(':'))+
+  arr[1].substring(arr[1].indexOf(':'),arr[1].length),
+  arr[1].substring(0,arr[1].indexOf(':'))+
+  arr[0].substring(arr[0].indexOf(':'),arr[0].length)]
+}
