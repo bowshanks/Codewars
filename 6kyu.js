@@ -177,3 +177,26 @@ function stringTransformer(str) {
     return x > 90 ? String.fromCharCode(x - 32) : String.fromCharCode(x + 32);
   }).join('').split(' ').reverse().join(' ')
 };
+
+// Get all array elements except those with specified indexes
+// Extend the array object with a function to return all elements of that array, except the ones with the indexes passed in the parameter.
+//
+// For example:
+//
+// var array = ['a', 'b', 'c', 'd', 'e'];
+// var array2 = array.except([1,3]);
+// // array2 should contain ['a', 'c', 'e'];
+// The function should accept both array as parameter but also a single integer, like this:
+//
+// var array = ['a', 'b', 'c', 'd', 'e'];
+// var array2 = array.except(1);
+// // array2 should contain ['a', 'c', 'd', 'e'];
+Array.prototype.except = function(keys)
+{
+  if (!Array.isArray(keys)) {
+    keys = [keys]
+  }
+  return this.filter(function(cV,index){
+    return keys.indexOf(index) == -1
+  })
+}
